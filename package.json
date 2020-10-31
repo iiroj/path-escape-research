@@ -1,0 +1,16 @@
+{
+  "name": "path-escape-research",
+  "version": "0.0.0-development",
+  "description": "Testing of different approaches to escaping paths and filenames ",
+  "author": "Iiro Jäppinen <iiro@jappinen.fi> (https://iiro.fi)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iiroj/path-escape-research.git"
+  },
+  "bugs": "https://github.com/iiroj/path-escape-research/issues",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
+}

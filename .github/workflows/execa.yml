@@ -1,0 +1,51 @@
+name: Execa
+
+on:
+  - push
+
+jobs:
+  execa:
+    name: execa (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npx jest execa.test.js
+
+  execa-command:
+    name: execa.command (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npx jest execa.command.test.js

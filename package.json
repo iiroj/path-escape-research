@@ -11,6 +11,8 @@
   "bugs": "https://github.com/iiroj/path-escape-research/issues",
   "private": true,
   "devDependencies": {
+    "execa": "^4.1.0",
+    "jest": "^26.6.1",
     "prettier": "^2.1.2"
   }
 }

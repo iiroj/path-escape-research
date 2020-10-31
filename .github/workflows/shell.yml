@@ -7,6 +7,7 @@ jobs:
   test1:
     name: Shell with single quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
         node:
           - 10
@@ -29,6 +30,7 @@ jobs:
   test2:
     name: Shell with double quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
         node:
           - 10
@@ -51,6 +53,7 @@ jobs:
   test3:
     name: Shell with escaped chars (Node.js v${{ matrix.node }} on ${{ matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
         node:
           - 10
@@ -73,6 +76,7 @@ jobs:
   test4:
     name: Shell with unescaped chars (Node.js v${{ matrix.node }} on ${{ matrix.os }})
     strategy:
+      fail-fast: false
       matrix:
         node:
           - 10

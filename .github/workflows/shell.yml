@@ -5,15 +5,10 @@ on:
 
 jobs:
   test1:
-    name: Shell with single quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    name: Shell with single quotes (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        node:
-          - 10
-          - 12
-          - 14
-          - 15
         os:
           - ubuntu-latest
           - macos-latest
@@ -23,20 +18,15 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 14
       - name: Shell with single quotes
         run: npx prettier --check 'test/file.js' 'test/{file}.js' 'test/file with spaces.js'
 
   test2:
-    name: Shell with double quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    name: Shell with double quotes (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        node:
-          - 10
-          - 12
-          - 14
-          - 15
         os:
           - ubuntu-latest
           - macos-latest
@@ -46,20 +36,15 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 14
       - name: Shell with single quotes
         run: npx prettier --check "test/file.js" "test/{file}.js" "test/file with spaces.js"
 
   test3:
-    name: Shell with escaped chars (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    name: Shell with escaped chars (${{ matrix.os }})
     strategy:
       fail-fast: false
       matrix:
-        node:
-          - 10
-          - 12
-          - 14
-          - 15
         os:
           - ubuntu-latest
           - macos-latest
@@ -69,6 +54,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 14
       - name: Shell with single quotes
         run: npx prettier --check test\/file.js test\/\{file\}.js test\/file\ with\ spaces.js

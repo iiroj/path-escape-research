@@ -3,21 +3,20 @@ name: CI
 on:
   - push
 
-strategy:
-  matrix:
-    node:
-      - 10
-      - 12
-      - 14
-      - 15
-    os:
-      - ubuntu-latest
-      - macos-latest
-      - windows-latest
-
 jobs:
   test1:
     name: Shell with single quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +28,17 @@ jobs:
 
   test2:
     name: Shell with double quotes (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -40,6 +50,17 @@ jobs:
 
   test3:
     name: Shell with escaped chars (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -51,6 +72,17 @@ jobs:
 
   test4:
     name: Shell with unescaped chars (Node.js v${{ matrix.node }} on ${{ matrix.os }})
+    strategy:
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+          - 15
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
